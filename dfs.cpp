@@ -34,7 +34,6 @@ void t_dfs(const Graph &g,int v,int p,int dep){
         //隣接しているノードのsubtreeを足す
         subtree[v]+=subtree[nv];
     }
-    
 }
 
 
