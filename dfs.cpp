@@ -1,15 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-using ll = long long;
-#define rep(i,a) for(int i = 0; i < (a); ++i)
 
-template<typename T> bool chmax(T &a,T b){if(a<b){a=b; return true;} return false;}
-template<typename T> bool chmin(T &a,T b){if(a>b){a=b; return true;} return false;}
 
 struct edge{
     int to;
-    ll cost;
-    edge(int to=-1,ll cost=-1):to(to),cost(cost){}
+    long long cost;
+    edge(int to=-1,long long cost=-1):to(to),cost(cost){}
 };
 using Graph = vector<vector<edge>>;
 
