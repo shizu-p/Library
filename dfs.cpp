@@ -59,6 +59,34 @@ struct dfs{
         subt = subtree_size;
         dep = depth;
     }
+
+
+    vector<int> topological_sort(){
+        vector<int> res;
+        vector<int> indegree(n,0);
+        priority_queue<int,vector<int>,greater<int>> pq;
+        for(int i = 0; i < n; ++i){
+            for(int j = 0; j < (int)g[i].size(); ++ j) {
+                indegree[g[i][j].to]++;
+            }
+        }
+
+        for(int i = 0; i < n; ++i) {
+            if(indegree[i] == 0) pq.push(i);
+        }
+    
+        while(!pq.empty()){
+            int v=pq.top();pq.pop();
+            res.push_back(v);
+            for(auto [to,cost] : g[v]){
+                indegree[to]--;
+                if(indegree[to] == 0) pq.push(to);
+            }
+        }
+
+        if(res.size() != g.size()) return {};
+        return res;
+    }
 };
 
 /*
@@ -69,18 +97,14 @@ int main(){
     int n,m;
     cin >> n >> m;
     Graph g(n);
-    rep(i,m){
+    for(int i=0;i<m;++i){
         int a,b;
         cin >> a >> b;
-        g[a].push_back({b,-1});
-        g[b].push_back({a,-1});
+        --a,--b;
+        g[a].push_back(b);
     }
-    
     dfs d(g);
-    vector<int> depth,subtree;
-    d.subtree_depth(0,subtree,depth);
-    for(int i = 0; i < n; ++i){
-        cout << i << " depth : " << depth[i] << "  subtree : " << subtree[i] << endl;
-    }
+    vector<int> ans = d.topological_sort();
+    for(auto s : ans)cout << s << " ";
 }
 */
