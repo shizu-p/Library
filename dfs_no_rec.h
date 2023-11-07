@@ -30,24 +30,3 @@ struct dfs_no_rec{
         }
     }
 };
-
-int main(){
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-
-    int n,m;
-    Graph g;
-    vector<int> depth;
-    cin >> n >> m;
-    g.resize(n);
-    depth.resize(n);
-    for(int i=0;i<m;++i){
-        int a,b;cin >> a >> b;
-        --a,--b;
-        g[a].push_back(b);
-        g[b].push_back(a);
-    }
-
-    dfs_no_rec d(g);
-    auto seen = d.search(0);
-}
