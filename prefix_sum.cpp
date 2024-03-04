@@ -14,8 +14,3 @@ template<typename T> vector<T> pre_sum(vector<T> &vec){
     return sum;
 }
 
-int main(){
-    vector<int> a = {1,2,3,4,5};
-    auto s = pre_sum(a);
-    for(auto ss : s) cout << ss << " ";
-}
