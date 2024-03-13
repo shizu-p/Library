@@ -36,6 +36,8 @@ public:
 
     //[l,r) (0-indexed)
     //[l,r) 区間の更新
+    //[l,r)区間をxにするのではなく区間に対してop(x,node)することに注意
+    //node[i] += x のような挙動
     void update(int l,int r,T x)
     {
         l += n;
