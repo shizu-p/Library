@@ -16,7 +16,7 @@ private:
     //operand
     //区間に対して行いたい操作
     std::function<T(T,T)> op;
-    //identity element
+    //単位元
     T e;
 public:
     DualSegmentTree(vector<T> vec,function<T(T,T)> op,T e)
@@ -24,7 +24,7 @@ public:
         n = 1;
         while(n < (int)vec.size()) n <<= 1;
         this->op = op;
-        this-> e = e;
+        this->e = e;
         //単位元で初期化
         //nodeは1-indexed
         node.resize(n*2,e);
@@ -36,7 +36,7 @@ public:
 
     //[l,r) (0-indexed)
     //[l,r) 区間の更新
-    //[l,r)区間をxにするのではなく区間に対してop(x,node)することに注意
+    //[l,r)区間をxにするわけではない
     //node[i] += x のような挙動
     void update(int l,int r,T x)
     {
