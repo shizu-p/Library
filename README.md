@@ -15,3 +15,4 @@ C++20
 - [半群・モノイド - 物理のかぎしっぽ](https://hooktail.sub.jp/algebra/Semigroup/)
 - [繰り返し二乗法によるべき乗(pow(x,n))の計算のアルゴリズム](https://algo-logic.info/calc-pow/)
 - [cpprefjp - C++日本語リファレンス](https://cpprefjp.github.io)
+- [高校数学の美しい物語](https://manabitimes.jp/math)
