@@ -2,8 +2,7 @@
 #include<functional>
 #include<vector>
 
-using namespace std;
-
+namespace shizu{
 //双対セグメントツリー
 // 区間更新、点更新 共に O(log N)
 
@@ -12,14 +11,14 @@ class DualSegmentTree
 {
 private:
     int n;
-    vector<T> node;
+    std::vector<T> node;
     //operand
     //区間に対して行いたい操作
     std::function<T(T,T)> op;
     //単位元
     T e;
 public:
-    DualSegmentTree(vector<T> vec,function<T(T,T)> op,T e)
+    DualSegmentTree(std::vector<T> vec,std::function<T(T,T)> op,T e)
     {
         n = 1;
         while(n < (int)vec.size()) n <<= 1;
@@ -74,6 +73,7 @@ public:
     }
 
 };
+} // namespace shizu;
 
 /*
 int op(int a,int b){

@@ -2,8 +2,7 @@
 #include<functional>
 #include<vector>
 
-using namespace std;
-
+namespace shizu{
 template<typename T>
 class SegmentTree
 {
@@ -11,9 +10,8 @@ private:
     int n;
     vector<T> node;
     //operand
-    //適宜書き換えてください
     std::function<T(T,T)> op;
-    //identity element
+    //単位元
     T e;
 public:
     SegmentTree(vector<T> vec,function<T(T,T)> op,T e)
@@ -65,24 +63,4 @@ public:
     }
 
 };
-/*
-int op(int a, int b)
-{
-    return a+b;
-}
-
-int main() 
-{
-    int n = 100;
-    vector<int>a(n);
-    for(int i=0;i<n;++i) a[i]=i;
-    int e = 0;
-    SegmentTree<int> segtree(a,op,e);
-    
-    //[0,100) までの合計
-    cout<< segtree.GetNode(0,100)<<endl;
-    //更新クエリ
-    segtree.update(0,100);
-    cout<<segtree.GetNode(0,100)<<endl;
-}
-*/
+} //namespace shizu
