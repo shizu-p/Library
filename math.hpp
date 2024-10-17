@@ -80,34 +80,41 @@ unsigned long long modpow(unsigned long long a, unsigned long long n,
     return res;
 }
 
-long long positive_mod(long long a, long long b) {
-    long long res = a % b;
+template <typename T>
+T positive_mod(T a, T b) {
+    T res = a % b;
     if (res < 0) {
         res += b;
     }
     return res;
 }
 
-long long floor_div(long long a, long long b) {
+template <typename T>
+T floor_div(T a, T b) {
     assert(b != 0);
-
-    long long res = a / b;
+    T res = a / b;
     if ((a % b != 0) && ((a < 0) != (b < 0))) {
         res--;
     }
-
     return res;
 }
 
-long long ceil_div(long long a, long long b) {
+template <typename T>
+T ceil_div(T a, T b) {
     assert(b != 0);
 
-    long long res = a / b;
+    T res = a / b;
     if ((a % b != 0) && ((a < 0) == (b < 0))) {
         res++;
-    }
 
-    return res;
+        return res;
+    }
+}
+
+// 正負関係なくx+yの床関数を求める 整数型以外許容しない
+template <typename T>
+T safe_floor_mid(const T x, const T y) {
+    return (x & y) + ((x ^ y) >> 1);
 }
 
 }  // namespace math
