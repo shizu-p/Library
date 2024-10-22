@@ -15,7 +15,7 @@ struct Matrix {
         assert(n * m * m <= 10010010);
         e.resize(n);
         for (int i = 0; i < n; ++i) {
-            e[i].resize(i);
+            e[i].resize(n);
         }
         for (int i = 0; i < n; ++i) {
             assert((int)vec[i].size() == m);
