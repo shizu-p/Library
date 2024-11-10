@@ -5,8 +5,10 @@
 #include <vector>
 
 #include "Matrix.hpp"
+#include "geometry.hpp"
 namespace shizu {
 namespace math {
+
 
 unsigned long long safe_multiply(unsigned long long a, unsigned long long b) {
     const unsigned long long MAX_64 =
